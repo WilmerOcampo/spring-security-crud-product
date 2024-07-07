@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <title>Detalles del Producto</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg ms-4">
+    <div th:insert="~{/component :: nav-bar}"></div>
+</nav>
+
+<h2 class="ms-4">Bienvenido: <span th:text="${session.name}"></span></h2>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Detalles del Producto</h2>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3"><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+                    <p class="mb-3"><strong>Nombre:</strong> <span th:text="${product.name}"></span></p>
+                    <p class="mb-3"><strong>Precio:</strong> <span th:text="${product.price}"></span></p>
+                    <p class="mb-3"><strong>Stock:</strong> <span th:text="${product.quantity}"></span></p>
+                    <p class="mb-3"><strong>Categoría:</strong> <span th:text="${product.category.name}"></span></p>
+                    <div class="text-center">
+                        <a th:href="@{/products}" class="btn btn-primary">Volver</a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="modal"
+                           data-bs-target="#confirmarEliminarModal">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este producto?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"
+        crossorigin="anonymous"></script>
+</body>
+</html>

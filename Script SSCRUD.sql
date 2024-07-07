@@ -1,0 +1,9 @@
+/* CREATE DATABASE db_sscrud DEFAULT CHARACTER SET utf8mb4; */
+
+/* EJECUTAR DESPUÉS DE INICIALIZAR EL PROYECTO */
+SELECT * FROM db_sscrud.users;
+SELECT * FROM db_sscrud.categories;
+SELECT * FROM db_sscrud.products;
+
+/* INSERTAR CATEGORÍAS PARA MANEJAR EL CRUD DE PRODUCTOS */
+INSERT INTO bd_kms.categories(name) VALUES ("LACTEOS"), ("BEBIDAS"), ("CEREALES"), ("GALLETAS");

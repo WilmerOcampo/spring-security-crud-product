@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <title>Productos</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg ms-4">
+    <div th:insert="~{/component :: nav-bar}"></div>
+</nav>
+
+<h2 class="ms-4">Bienvenido: <span th:text="${session.name}"></span></h2>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h2 class="card-title">Productos</h2>
+            <div class="">
+                <a th:href="@{/products/new}" class="btn btn-primary">Nuevo Producto</a>
+                <a th:href="@{/}" class="btn btn-secondary">Home</a>
+                <!--<a th:href="@{/products/report}" class="btn btn-info">Generar PDF</a>-->
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}">ID</td>
+                    <td th:text="${product.name}">Nombre</td>
+                    <td th:text="${product.price}">Precio</td>
+                    <td th:text="${product.quantity}">Stock</td>
+                    <td th:text="${product.category.name}">Categoría</td>
+                    <td>
+                        <a th:href="@{/products/detail/{id}(id=${product.id})}" class="btn btn-info btn-sm">Ver</a>
+                        <a th:href="@{/products/edit/{id}(id=${product.id})}"
+                           class="btn btn-warning btn-sm">Editar</a>
+                        <a th:href="@{/products/detail/{id}(id=${product.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"
+        crossorigin="anonymous"></script>
+</body>
+</html>
