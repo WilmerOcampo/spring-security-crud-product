@@ -6,4 +6,4 @@ SELECT * FROM db_sscrud.categories;
 SELECT * FROM db_sscrud.products;
 
 /* INSERTAR CATEGORÍAS PARA MANEJAR EL CRUD DE PRODUCTOS */
-INSERT INTO bd_kms.categories(name) VALUES ("LACTEOS"), ("BEBIDAS"), ("CEREALES"), ("GALLETAS");
+INSERT INTO db_sscrud.categories(name) VALUES ("LACTEOS"), ("BEBIDAS"), ("CEREALES"), ("GALLETAS");
