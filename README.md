@@ -33,15 +33,15 @@ Este proyecto implementa un sistema de autenticación y autorización utilizando
 ### Pasos:
 1. **Clonar el repositorio**:
     ```bash
-    git clone https://github.com/tuusuario/tu-repositorio.git
-    cd tu-repositorio
+    git clone https://github.com/WilmerOcampo/spring-security-crud-product.git
+    cd spring-security-crud-product
     ```
 2. **Configurar application.properties**:
    Asegúrate de configurar las propiedades necesarias en el archivo `src/main/resources/application.properties`. La sentencia `?createDatabaseIfNotExist=true` habilita la creación de la base de datos si no existe.
     ```properties
     spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos?createDatabaseIfNotExist=true
-    spring.datasource.username=tu_usuario
-    spring.datasource.password=tu_contraseña
+    spring.datasource.username=usuario
+    spring.datasource.password=password
     spring.jpa.hibernate.ddl-auto=update
     ```
 
